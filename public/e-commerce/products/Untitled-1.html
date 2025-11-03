@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>📊 Data Science Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #f4f6f8;
+        }
+        header {
+            background-color: #3a86ff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 220px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        canvas {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📈 Institute Analytics Dashboard</h1>
+</header>
+
+<div class="cards">
+    <div class="card"><h3>Total Students</h3><p>1,250</p></div>
+    <div class="card"><h3>Active Courses</h3><p>18</p></div>
+    <div class="card"><h3>Upcoming Batches</h3><p>5</p></div>
+    <div class="card"><h3>Placement Records</h3><p>82%</p></div>
+    <div class="card"><h3>Total Revenue (Month)</h3><p>₹2.4 Lakh</p></div>
+    <div class="card"><h3>Challenge Hub Events</h3><p>3</p></div>
+    <div class="card"><h3>New Enquiries</h3><p>45</p></div>
+</div>
+
+<div class="charts">
+    <canvas id="studentGrowth"></canvas>
+    <canvas id="revenueChart"></canvas>
+    <canvas id="courseEnrollments"></canvas>
+</div>
+
+<script>
+    // 📊 Line Chart - Student Growth
+    new Chart(document.getElementById("studentGrowth"), {
+        type: "line",
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [{
+                label: "Monthly Admissions",
+                data: [50, 70, 100, 120, 90, 150],
+                borderColor: "#3a86ff",
+                fill: true,
+                backgroundColor: "rgba(58,134,255,0.2)"
+            }]
+        }
+    });
+
+    // 💰 Bar Chart - Revenue
+    new Chart(document.getElementById("revenueChart"), {
+        type: "bar",
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [{
+                label: "Monthly Revenue (₹)",
+                data: [40000, 55000, 65000, 60000, 70000, 80000],
+                backgroundColor: "#ffbe0b"
+            }]
+        }
+    });
+
+    // 🧩 Pie Chart - Course Enrollments
+    new Chart(document.getElementById("courseEnrollments"), {
+        type: "pie",
+        data: {
+            labels: ["Data Science", "AI", "ML", "Python", "Power BI"],
+            datasets: [{
+                data: [35, 25, 20, 10, 10],
+                backgroundColor: ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"]
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>
